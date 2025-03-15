@@ -1,0 +1,24 @@
+.abc{
+    background-color: black;
+    color: aliceblue;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 50px;
+}
+.abc::after{
+    content: '';
+}
+.abc::before{
+    content: '';
+}
+.tar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: conic-gradient(red 0deg 90deg,yellow 270deg 360deg);
+    margin: auto;
+    margin-top: 50px;
+}
