@@ -1,4 +1,5 @@
 .abc{
+    border-radius: 10px;
     background-color: black;
     color: aliceblue;
     width: 350px;
@@ -7,18 +8,44 @@
     align-content: center;
     margin: auto;
     margin-top: 50px;
+    position: relative;
 }
-.abc::after{
+@property --xyz{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+.abc::after,.abc::before{
+    border-radius: 10px;
     content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-image: conic-gradient(from var(--xyz),red,yellow,cyan,magenta,palegreen,lightblue,darkblue,red);
+    z-index: -1;
+    padding: 5px;
+    animation: neon 2s linear infinite;
 }
 .abc::before{
-    content: '';
+    z-index: -2;
+    filter: blur(20px);
+    opacity: 0.7;
 }
-.tar{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-image: conic-gradient(from ,red,yellow,green);
-    margin: auto;
-    margin-top: 50px;
+/* .abc:hover{
+    background-color: aliceblue;
+    color: black;
+} */
+/* .abc:hover::after,.abc:hover::before{
+    animation: neon 2s linear infinite;
+} */
+@keyframes neon{
+    from{
+        --xyz:0deg;
+    }
+    to{
+        --xyz:360deg;
+    }
 }
