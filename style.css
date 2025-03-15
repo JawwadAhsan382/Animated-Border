@@ -18,7 +18,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-image: conic-gradient(red 0deg 90deg,yellow 270deg 360deg);
+    background-image: conic-gradient(red,yellow,green);
     margin: auto;
     margin-top: 50px;
 }
