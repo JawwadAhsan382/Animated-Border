@@ -6,8 +6,7 @@
     height: 200px;
     text-align: center;
     align-content: center;
-    margin: auto;
-    margin-top: 50px;
+    margin: 50px auto;
     position: relative;
 }
 @property --xyz{
@@ -34,13 +33,9 @@
     filter: blur(20px);
     opacity: 0.7;
 }
-/* .abc:hover{
-    background-color: aliceblue;
-    color: black;
-} */
-/* .abc:hover::after,.abc:hover::before{
-    animation: neon 2s linear infinite;
-} */
+.abc:hover::after,.abc:hover::before{
+    animation: neon 2s linear infinite reverse;
+}
 @keyframes neon{
     from{
         --xyz:0deg;
@@ -49,3 +44,48 @@
         --xyz:360deg;
     }
 }
+ .bcd{
+    background-color: black;
+    color: aliceblue;
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    position: relative;
+ }
+ .bcd::after,.bcd::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-image: conic-gradient(from var(--ang),yellow 0deg,transparent 90deg 180deg,yellow 180deg,transparent 270deg 360deg);
+    z-index: -1;
+    padding: 5px;
+    border-radius: 10px;
+    animation: d2 2s linear infinite;
+ }
+ .bcd::before{
+    filter: blur(20px);
+    z-index: -2;
+ }
+ .bcd:hover::after,.bcd:hover:before{
+    background-image: conic-gradient(from var(--ang),rgb(31, 234, 253) 0deg,transparent 90deg 180deg,rgb(31, 234, 253) 180deg,transparent 270deg 360deg);
+ }
+ @property --ang{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+ }
+ @keyframes d2{
+    from{
+        --ang:0deg;
+    }
+    to{
+        --ang:360deg;
+    }
+ }
